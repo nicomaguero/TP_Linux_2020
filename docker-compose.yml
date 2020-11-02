@@ -20,7 +20,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: mypassword
-      MYSQL_DATABASE: Mercado
+      MYSQL_DATABASE: MedicionesDB
       MYSQL_USER: admlinux
       MYSQL_PASSWORD: admlinux
     ports:
