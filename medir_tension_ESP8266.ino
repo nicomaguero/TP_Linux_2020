@@ -5,68 +5,18 @@
 //-------------------VARIABLES GLOBALES--------------------------
 int contconexion = 0;
 
-const char *ssid = "WiFi-Arnet-b5";
-const char *password = "nico1234";
+const char *ssid = "";  //nombre de la red
+const char *password = ""; //clave de la red
 
 unsigned long previousMillis = 0;
 
-String host2 = "192.168.1.18";
-
 char host[48];
-String strhost = "192.168.1.18";
+String strhost = "192.168.1.18"; //Direccion del servidor
 String strurl = "/enviardatos.php";
 String chipid = "";
 
 
-
-//
-////-------Función para Enviar Datos a la Base de Datos SQL--------
-//
-String enviardatos(String datos) {
-  String linea = "error";
-  WiFiClient client;
-  strhost.toCharArray(host, 49);
-  if (!client.connect(host, 22)) {
-    Serial.println("Fallo de conexion");
-    return linea;
-  }
-
-
-
-
-//  client.print(String("POST ") + strurl + " HTTP/1.1" + "\r\n" + 
-//               "Host: " + host2 + "\r\n" +
-//               "Accept: */*" + "*\r\n" +
-//               "Content-Length: " + datos.length() + "\r\n" +
-//               "Content-Type: application/x-www-form-urlencoded" + "\r\n" +
-//               "\r\n" + datos);     
-
-
-  delay(10);             
-  
-  Serial.print("Enviando datos a SQL...");
-  
-  unsigned long timeout = millis();
-  while (client.available() == 0) {
-    if (millis() - timeout > 5000) {
-      Serial.println("Cliente fuera de tiempo!");
-      client.stop();
-      return linea;
-    }
-  }
-  // Lee todas las lineas que recibe del servidro y las imprime por la terminal serial
-  while(client.available()){
-    linea = client.readStringUntil('\r');
-  }  
-  Serial.println(linea);
-  return linea;
-}
-
-
-
-
-
-//-------------------------------------------------------------------------
+//------------------Sistema-------------------------------
 
 void setup() {
 
@@ -105,27 +55,47 @@ void setup() {
 //--------------------------LOOP--------------------------------
 
 void loop() {
-//
-  unsigned long currentMillis = millis();
 
-  if (currentMillis - previousMillis >= 10000) { //envia la temperatura cada 10 segundos
-    previousMillis = currentMillis;
-    int analog = analogRead(17);
-    float temp = analog*0.00322265625;
-    Serial.println(temp);
-    enviardatos("chipid=" + chipid + "&temperatura=" + String(temp, 2));
+
+String linea = "error";
+WiFiClient client;
+strhost.toCharArray(host, 49);
+if (!client.connect(host, 22)) {
+  Serial.println("Fallo de conexion");
+}
+
+
+            
+
+
+Serial.print("Enviando datos a SQL...");
+
+ 
+  
+unsigned long timeout = millis();
+
+while (client.available() == 0) {
+  if (millis() - timeout > 5000) {
+    Serial.println("Cliente fuera de tiempo!");
+    client.stop();
   }
-//
-//
+}
+// Lee todas las lineas que recibe del servidro y las imprime por la terminal serial
+while(client.available()){
+  linea = client.readStringUntil('\r');
+}  
+
+Serial.println(linea);
 
 
 
 
-
-
+//Tomando datos de entrada analogica A0 con entrada de 0V a 3.3V
 int analog = analogRead(17);
 float temp = analog*0.00322265625;
 
+  
+//Servicio HTTP
 if (WiFi.status() == WL_CONNECTED) { //Check WiFi connection status
 
 String url = "http://192.168.1.18:8000/enviardatos.php?temp=";
