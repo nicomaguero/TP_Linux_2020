@@ -92,14 +92,14 @@ Serial.println(linea);
 
 //Tomando datos de entrada analogica A0 con entrada de 0V a 3.3V
 int analog = analogRead(17);
-float temp = analog*0.00322265625;
+float voltaje = analog*0.00322265625;
 
   
 //Servicio HTTP
 if (WiFi.status() == WL_CONNECTED) { //Check WiFi connection status
 
-String url = "http://192.168.1.18:8000/enviardatos.php?temp=";
-url += temp;
+String url = "http://192.168.1.18:8000/enviardatos.php?volts=";
+url += voltaje;
 
 HTTPClient http;  //Declare an object of class HTTPClient
 http.begin(url);  //Specify request destination
