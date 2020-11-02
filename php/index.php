@@ -3,23 +3,22 @@
 $host = 'db'; //nombre del servicio desde el docker-compose
 $user = 'admlinux';
 $password = 'admlinux';
-$db = 'Mercado';
+$db = 'MedicionesDB';
 
 $conn = new mysqli($host,$user,$password,$db);
+
 if($conn->connect_error){
     echo 'La conexion falló' . $conn->connect_error;
 }
-echo 'La conexion a MySQL fue exitosa!<br><br>';
 
 echo 'TP Adm Linux Segundo Cuatrimestre 2020<br>';
 echo 'Alumnos: Aguero Nicolás y Rota Franco<br><br>';
 
-$datos = $conn->query("SELECT * FROM Temperatura");
+$datos = $conn->query("SELECT * FROM Tensiones");
 
 
 
 ?>
-
 
 <!DOCTYPE HTML>
 <html>
@@ -87,7 +86,7 @@ $datos = $conn->query("SELECT * FROM Temperatura");
 Highcharts.chart('container', {
 
     title: {
-        text: 'Temperatura ambiente'
+        text: 'Tensiones'
     },
 
     subtitle: {
@@ -96,7 +95,7 @@ Highcharts.chart('container', {
 
     yAxis: {
         title: {
-            text: 'Temperatura'
+            text: 'Tension'
         }
     },
 
@@ -122,12 +121,12 @@ Highcharts.chart('container', {
     },
 
     series: [{
-        name: 'Temperatura ambiente',
+        name: 'Tensiones medidas',
                 data: [
 
                         <?php while($user = mysqli_fetch_array($datos)){
 
-                                         echo "[".$user['teperatura']."], " ;
+                                         echo "[".$user['tension']."], " ;
 
                                    }
                                    
