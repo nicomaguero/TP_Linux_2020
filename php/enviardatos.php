@@ -4,10 +4,10 @@
 $host = 'db'; //nombre del servicio desde el docker-compose
 $user = 'admlinux';
 $password = 'admlinux';
-$db = 'Mercado';
+$db = 'MedicionesDB';
 
 
-$temperatura=$_GET['temp'];
+$tension=$_GET['volts'];
 
 
 $conexion = mysqli_connect($host,$user,$password,$db) or die ("No se ha podido conectar al servidor de Base de Datos");
@@ -17,18 +17,13 @@ $conexion = mysqli_connect($host,$user,$password,$db) or die ("No se ha podido c
 
 //$fecha = time();
 //$consulta = "INSERT INTO Temperatura(id, teperatura, fecha) VALUES (NULL,".$temperatura.", NULL)";
-$consulta =" INSERT INTO `Temperatura` (`id`, `teperatura`, `fecha`) VALUES (NULL, ".$temperatura.", NOW())";
+$consulta =" INSERT INTO `Tension` (`id`, `tension`, `fecha`) VALUES (NULL, ".$tension.", NOW())";
 
 $resultado = mysqli_query( $conexion, $consulta);
 
 //mysqli_query("INSERT INTO `Mercado`.`Temperatura` (`id`, `teperatura`, `fecha`) VALUES (NULL, '$temperatura',  '$fecha');");
 
 
-
-
-$ActualizarDespuesDe = 10;
-// // Envíe un encabezado Refresh al navegador preferido.
-header('Refresh: '.$ActualizarDespuesDe);
 
 
 ?>
