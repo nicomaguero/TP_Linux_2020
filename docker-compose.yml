@@ -1,0 +1,37 @@
+version: '3.3'
+services:
+  web:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    container_name: php73
+    depends_on:
+      - db
+    volumes:
+      - ./php:/var/www/html/ 
+    ports:
+      - 8000:80
+  db:
+    container_name: mysql-php
+    image: mysql:8.0.22
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./sql-data:/var/lib/mysql/
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: mypassword
+      MYSQL_DATABASE: Mercado
+      MYSQL_USER: admlinux
+      MYSQL_PASSWORD: admlinux
+    ports:
+      - 6033:3306
+  app:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin:5
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      -  8080:80
+    environment:
+      PMA_HOST: db
