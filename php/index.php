@@ -17,7 +17,6 @@ echo 'Alumnos: Aguero Nicolás y Rota Franco<br><br>';
 $datos = $conn->query("SELECT * FROM Tensiones");
 
 
-
 ?>
 
 <!DOCTYPE HTML>
@@ -153,5 +152,11 @@ Highcharts.chart('container', {
 
 });
                 </script>
-        </body>
+
+
+	</body>
+
+
+<meta http-equiv="refresh" content="5" />
+
 </html>

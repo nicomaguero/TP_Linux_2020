@@ -17,7 +17,7 @@ $conexion = mysqli_connect($host,$user,$password,$db) or die ("No se ha podido c
 
 //$fecha = time();
 //$consulta = "INSERT INTO Temperatura(id, teperatura, fecha) VALUES (NULL,".$temperatura.", NULL)";
-$consulta =" INSERT INTO `Tension` (`id`, `tension`, `fecha`) VALUES (NULL, ".$tension.", NOW())";
+$consulta =" INSERT INTO `Tensiones` (`id`, `tension`, `fecha`) VALUES (NULL, ".$tension.", NOW())";
 
 $resultado = mysqli_query( $conexion, $consulta);
 
