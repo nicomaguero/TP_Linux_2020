@@ -91,6 +91,7 @@ Serial.println(linea);
 
 
 //Tomando datos de entrada analogica A0 con entrada de 0V a 3.3V
+Serial.println("Tension medida");
 int analog = analogRead(17);
 float voltaje = analog*0.00322265625;
 
