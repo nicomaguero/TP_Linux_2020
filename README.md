@@ -1,6 +1,6 @@
 # TP_Linux_2020
 
-# Aplicación de IoT mediante Docker
+# Creacion de Base de Datos con MySQL desde Docker: Aplicación IoT 
 
 Mediante Docker integramos una base de datos con consultas que se puedan hacer con PHPMyAdmin. Finalmente con una página local creada con PHP mostramos los datos tomados y enviados por un ESP8266.
 
