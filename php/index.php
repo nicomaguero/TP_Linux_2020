@@ -11,7 +11,7 @@ if($conn->connect_error){
     echo 'La conexion falló' . $conn->connect_error;
 }
 
-echo 'TP Adm Linux Segundo Cuatrimestre 2020<br>';
+echo '<div style=font-size:30px Ubuntu>TP Adm Linux Segundo Cuatrimestre 2020</div><br><br> ';
 echo 'Alumnos: Aguero Nicolás y Rota Franco<br><br>';
 
 
