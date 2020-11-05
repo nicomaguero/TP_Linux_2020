@@ -11,7 +11,7 @@ const char *password = ""; //clave de la red
 unsigned long previousMillis = 0;
 
 char host[48];
-String strhost = "192.168.1.18"; //Direccion del servidor
+String strhost = ""; //Direccion del servidor
 String strurl = "/enviardatos.php";
 String chipid = "";
 
@@ -99,7 +99,7 @@ float voltaje = analog*0.00322265625;
 //Servicio HTTP
 if (WiFi.status() == WL_CONNECTED) { //Check WiFi connection status
 
-String url = "http://192.168.1.18:8000/enviardatos.php?volts=";
+String url = "http://:8000/enviardatos.php?volts="; //antes del ":" colocar direccion del host 
 url += voltaje;
 
 HTTPClient http;  //Declare an object of class HTTPClient
