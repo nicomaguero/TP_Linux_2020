@@ -101,5 +101,22 @@ Dentro de la carpeta php tenemos el index que tiene código php y nos va mostran
 
 ### PHPMyAdmin
 
+Desde PHPMyAdmin podemos ver y editar los registros de nuestra base de datos (borrar,agregar,modificar filas)
+Es una interfaz mucho más amigable para el usuario que ingresando por MySQL de la forma convencional (ejecutando el servicio desde consola)
+Podemos acceder a este servicio escribiendo en la url de nuestro navegador: `localhost:8080` 
 
 <img src= "imagenes_tp_linux/imagen6_phpMyAdmin.png" width="700">
+
+### Node MCU ESP8266
+Es un dispositivo para crear aplicaciones que usen WiFi.
+Se conectar por USB a nuestra PC y entrega una salida de tensión de 3.3V, la cual conectamos con un potenciómetro y variamos la tensión que se enviará por WiFi a nuestra aplicación con Docker.
+
+
+### Grafico y Tabla
+Los valores de tensión enviados por el ESP8266 se muestran en un gráfico al ingresar en la url de nuestro navegador la ip de nuestra máquina y el puerto 8000 `localhost:8000`
+
+El gráfico esta creado con una serie de scripts .js ya prearmados y sólo le enviamos los registros que queremos que lea de la BD
+
+Adicionalmente en el archivo index.php leemos una imagen en una carpeta local que nos muestre el logo de la Universidad y debajo del gráfico que vaya mostrando los registros que cambian en la BD.
+<img src= "imagenes_tp_linux/imagen_grafico.png" width="800">
+ 
