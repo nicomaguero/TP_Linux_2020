@@ -156,7 +156,7 @@ Highcharts.chart('container', {
 
 	</body>
 
-
+//refresca la pagina cada 5 segundos
 <meta http-equiv="refresh" content="5" />
 
 </html>
