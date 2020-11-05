@@ -94,7 +94,7 @@ $datos = $conn->query("SELECT * FROM Tensiones");
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
-        Temperatura en funcion del tiempo.
+        Tensiones medidas con placa Esp8266
     </p>
 </figure>
 
@@ -110,12 +110,12 @@ Highcharts.chart('container', {
     },
 
     subtitle: {
-        text: 'Medida con el esp8266'
+        text: ''
     },
 
     yAxis: {
         title: {
-            text: 'Tension'
+            text: 'Tensión'
         }
     },
 
