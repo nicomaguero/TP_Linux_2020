@@ -82,7 +82,7 @@ Por último, MySQL va a exponer el puerto `3306` que será redireccionado a nues
 
 #### app
 
-Con el servicio `app` levantamos una imagen de `*phpmyadmin*` para visualizar los registros de datos al ir al puerto `8080` en nuestro navegador (siempre de manera local)
+Con el servicio `app` levantamos una imagen de `phpmyadmin` para visualizar los registros de datos al ir al puerto `8080` en nuestro navegador (siempre de manera local)
 El parámetro *depends_on* nos lo enlaza a nuestro servicio *db* para leer y escribir en la BD.
 Usamos la imagen de `phpmyadmin:5` que obtenemos de dockerhub.
 
@@ -102,4 +102,4 @@ Dentro de la carpeta php tenemos el index que tiene código php y nos va mostran
 ### PHPMyAdmin
 
 
-<img src= "imagenes_tp_linux/imagen6_phpMyAdmin.png" width="400">
+<img src= "imagenes_tp_linux/imagen6_phpMyAdmin.png" width="700">
