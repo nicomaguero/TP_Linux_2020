@@ -14,10 +14,31 @@ if($conn->connect_error){
 echo 'TP Adm Linux Segundo Cuatrimestre 2020<br>';
 echo 'Alumnos: Aguero Nicolás y Rota Franco<br><br>';
 
+
 $datos = $conn->query("SELECT * FROM Tensiones");
 
 
 ?>
+
+<!DOCTYPE html>
+<html>
+  <body>
+
+<style type="text/css">
+.milogo{
+
+        margin: 40;
+        display: block;
+}
+</style>
+
+<img src="/imagenes/logo-unsam.jpg" width="280" height="125" title="Logo de UNSAM" alt="milogo" />
+
+
+  </body>
+</html>
+
+
 
 <!DOCTYPE HTML>
 <html>
@@ -156,7 +177,52 @@ Highcharts.chart('container', {
 
 	</body>
 
-// refresca la pagina cada 5 segundos
-<meta http-equiv="refresh" content="5" />
+
+<meta http-equiv="refresh" content="8" />
 
 </html>
+
+
+
+<?php
+	$tabladata = $conn->query("SELECT * FROM Tensiones");
+?>
+
+
+
+<table border="1px">
+    <thead>
+       <td style="background-color:#76abdb;"> id </td>
+       <td style="background-color:#76abdb;">tension</td>
+       <td style="background-color:#76abdb;">fecha</td>
+    </thead>
+    <tbody>
+        <?php while($user = mysqli_fetch_array($tabladata)){ ?>
+            <tr>
+                <td><?php echo $user['id']; ?></td>
+                <td><?php echo $user['tension']; ?></td>
+		<td><?php echo $user['fecha']; ?></td>
+            </tr>
+
+        <?php } ?>
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
