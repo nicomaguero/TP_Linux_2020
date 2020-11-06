@@ -110,7 +110,7 @@ Podemos acceder a este servicio escribiendo en la url de nuestro navegador: `loc
 ### Node MCU ESP8266
 Es un dispositivo para crear aplicaciones que usen WiFi.
 Se conectar por USB a nuestra PC y entrega una salida de tensión de 3.3V, la cual conectamos con un potenciómetro y variamos la tensión que se enviará por WiFi a nuestra aplicación con Docker.
-<img src= "imagenes_tp_linux/img_esp_potenciometro.jpg" width="700">
+<img src= "imagenes_tp_linux/img_esp_potenciometro.jpg" width="350">
 
 
 ### Grafico y Tabla
