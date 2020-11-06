@@ -7,6 +7,8 @@ $db = 'MedicionesDB';
 
 $conn = new mysqli($host,$user,$password,$db);
 
+//SET GLOBAL time_zone = 'Europe/Madrid';
+
 if($conn->connect_error){
     echo 'La conexion falló' . $conn->connect_error;
 }
@@ -94,7 +96,7 @@ $datos = $conn->query("SELECT * FROM Tensiones");
 <figure class="highcharts-figure">
     <div id="container"></div>
     <p class="highcharts-description">
-        Tensiones medidas con placa Esp8266
+        Tensiones medidas con placa ESP8266
     </p>
 </figure>
 
@@ -185,7 +187,7 @@ Highcharts.chart('container', {
 
 
 <?php
-	$tabladata = $conn->query("SELECT * FROM Tensiones");
+	$tabladata = $conn->query("SELECT * FROM Tensiones ORDER BY fecha DESC LIMIT 10");
 ?>
 
 

@@ -20,6 +20,7 @@ services:
       - ./sql-data:/var/lib/mysql/
     restart: always
     environment:
+      TZ: America/Argentina/Buenos_Aires
       MYSQL_ROOT_PASSWORD: mypassword
       MYSQL_DATABASE: MedicionesDB
       MYSQL_USER: admlinux
